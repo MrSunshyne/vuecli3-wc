@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "App.js",
-  "dependencies": {
-    "axios": "^0.18.0"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vue build"
   },
   "keywords": [],
   "author": "",

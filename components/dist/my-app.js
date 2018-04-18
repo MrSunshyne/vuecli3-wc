@@ -73,6 +73,144 @@ module.exports = __webpack_require__("Zcnt");
 
 /***/ }),
 
+/***/ "2D6E":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("p+uq")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".app-container[data-v-1f566ea2]{background:gray}.app-container.amigo[data-v-1f566ea2]{background:blue}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "3khe":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+// CONCATENATED MODULE: /Users/sun/.config/yarn/global/node_modules/vue-style-loader/lib/listToStyles.js
+/**
+ * Translates the list format produced by css-loader into something
+ * easier to manipulate.
+ */
+function listToStyles (parentId, list) {
+  var styles = []
+  var newStyles = {}
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i]
+    var id = item[0]
+    var css = item[1]
+    var media = item[2]
+    var sourceMap = item[3]
+    var part = {
+      id: parentId + ':' + i,
+      css: css,
+      media: media,
+      sourceMap: sourceMap
+    }
+    if (!newStyles[id]) {
+      styles.push(newStyles[id] = { id: id, parts: [part] })
+    } else {
+      newStyles[id].parts.push(part)
+    }
+  }
+  return styles
+}
+
+// CONCATENATED MODULE: /Users/sun/.config/yarn/global/node_modules/vue-style-loader/lib/addStylesShadow.js
+/* harmony export (immutable) */ __webpack_exports__["default"] = addStylesToShadowDOM;
+
+
+function addStylesToShadowDOM (parentId, list, shadowRoot) {
+  var styles = listToStyles(parentId, list)
+  addStyles(styles, shadowRoot)
+}
+
+/*
+type StyleObject = {
+  id: number;
+  parts: Array<StyleObjectPart>
+}
+
+type StyleObjectPart = {
+  css: string;
+  media: string;
+  sourceMap: ?string
+}
+*/
+
+function addStyles (styles /* Array<StyleObject> */, shadowRoot) {
+  const injectedStyles =
+    shadowRoot._injectedStyles ||
+    (shadowRoot._injectedStyles = {})
+  for (var i = 0; i < styles.length; i++) {
+    var item = styles[i]
+    var style = injectedStyles[item.id]
+    if (style) {
+      style.refs++
+      for (var j = 0; j < style.parts.length; j++) {
+        style.parts[j](item.parts[j])
+      }
+      for (; j < item.parts.length; j++) {
+        style.parts.push(addStyle(item.parts[j], shadowRoot))
+      }
+      if (style.parts.length > item.parts.length) {
+        style.parts.length = item.parts.length
+      }
+    } else {
+      var parts = []
+      for (var j = 0; j < item.parts.length; j++) {
+        parts.push(addStyle(item.parts[j], shadowRoot))
+      }
+      injectedStyles[item.id] = { id: item.id, refs: 1, parts: parts }
+    }
+  }
+}
+
+function createStyleElement (shadowRoot) {
+  var styleElement = document.createElement('style')
+  styleElement.type = 'text/css'
+  shadowRoot.appendChild(styleElement)
+  return styleElement
+}
+
+function addStyle (obj /* StyleObjectPart */, shadowRoot) {
+  var styleElement = createStyleElement(shadowRoot)
+  var css = obj.css
+  var media = obj.media
+  var sourceMap = obj.sourceMap
+
+  if (media) {
+    styleElement.setAttribute('media', media)
+  }
+
+  if (sourceMap) {
+    // https://developer.chrome.com/devtools/docs/javascript-debugging
+    // this makes source maps inside style tags work properly in Chrome
+    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
+    // http://stackoverflow.com/a/26603875
+    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
+  }
+
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild)
+    }
+    styleElement.appendChild(document.createTextNode(css))
+  }
+}
+
+
+/***/ }),
+
 /***/ "Zcnt":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -356,118 +494,8 @@ function wrap (Vue, Component) {
 var css_base = __webpack_require__("p+uq");
 var css_base_default = /*#__PURE__*/__webpack_require__.n(css_base);
 
-// CONCATENATED MODULE: /Users/sun/.config/yarn/global/node_modules/vue-style-loader/lib/listToStyles.js
-/**
- * Translates the list format produced by css-loader into something
- * easier to manipulate.
- */
-function listToStyles (parentId, list) {
-  var styles = []
-  var newStyles = {}
-  for (var i = 0; i < list.length; i++) {
-    var item = list[i]
-    var id = item[0]
-    var css = item[1]
-    var media = item[2]
-    var sourceMap = item[3]
-    var part = {
-      id: parentId + ':' + i,
-      css: css,
-      media: media,
-      sourceMap: sourceMap
-    }
-    if (!newStyles[id]) {
-      styles.push(newStyles[id] = { id: id, parts: [part] })
-    } else {
-      newStyles[id].parts.push(part)
-    }
-  }
-  return styles
-}
-
-// CONCATENATED MODULE: /Users/sun/.config/yarn/global/node_modules/vue-style-loader/lib/addStylesShadow.js
-
-
-function addStylesToShadowDOM (parentId, list, shadowRoot) {
-  var styles = listToStyles(parentId, list)
-  addStyles(styles, shadowRoot)
-}
-
-/*
-type StyleObject = {
-  id: number;
-  parts: Array<StyleObjectPart>
-}
-
-type StyleObjectPart = {
-  css: string;
-  media: string;
-  sourceMap: ?string
-}
-*/
-
-function addStyles (styles /* Array<StyleObject> */, shadowRoot) {
-  const injectedStyles =
-    shadowRoot._injectedStyles ||
-    (shadowRoot._injectedStyles = {})
-  for (var i = 0; i < styles.length; i++) {
-    var item = styles[i]
-    var style = injectedStyles[item.id]
-    if (style) {
-      style.refs++
-      for (var j = 0; j < style.parts.length; j++) {
-        style.parts[j](item.parts[j])
-      }
-      for (; j < item.parts.length; j++) {
-        style.parts.push(addStyle(item.parts[j], shadowRoot))
-      }
-      if (style.parts.length > item.parts.length) {
-        style.parts.length = item.parts.length
-      }
-    } else {
-      var parts = []
-      for (var j = 0; j < item.parts.length; j++) {
-        parts.push(addStyle(item.parts[j], shadowRoot))
-      }
-      injectedStyles[item.id] = { id: item.id, refs: 1, parts: parts }
-    }
-  }
-}
-
-function createStyleElement (shadowRoot) {
-  var styleElement = document.createElement('style')
-  styleElement.type = 'text/css'
-  shadowRoot.appendChild(styleElement)
-  return styleElement
-}
-
-function addStyle (obj /* StyleObjectPart */, shadowRoot) {
-  var styleElement = createStyleElement(shadowRoot)
-  var css = obj.css
-  var media = obj.media
-  var sourceMap = obj.sourceMap
-
-  if (media) {
-    styleElement.setAttribute('media', media)
-  }
-
-  if (sourceMap) {
-    // https://developer.chrome.com/devtools/docs/javascript-debugging
-    // this makes source maps inside style tags work properly in Chrome
-    css += '\n/*# sourceURL=' + sourceMap.sources[0] + ' */'
-    // http://stackoverflow.com/a/26603875
-    css += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + ' */'
-  }
-
-  if (styleElement.styleSheet) {
-    styleElement.styleSheet.cssText = css
-  } else {
-    while (styleElement.firstChild) {
-      styleElement.removeChild(styleElement.firstChild)
-    }
-    styleElement.appendChild(document.createTextNode(css))
-  }
-}
+// EXTERNAL MODULE: /Users/sun/.config/yarn/global/node_modules/vue-style-loader/lib/addStylesShadow.js + 1 modules
+var addStylesShadow = __webpack_require__("3khe");
 
 // CONCATENATED MODULE: /Users/sun/.config/yarn/global/node_modules/vue-loader/lib/runtime/component-normalizer.js
 /* globals __VUE_SSR_CONTEXT__ */
@@ -584,13 +612,21 @@ function normalizeComponent (
 //
 //
 //
+//
+//
 /* harmony default export */ var selectortype_script_index_0_MyApp = ({
+  props: ["theme"],
   data: function data() {
     return {
       name: "Sandeep",
       image: "",
       message: ""
     };
+  },
+  computed: {
+    themeName: function themeName() {
+      return typeof this.theme === "undefined" ? "No theme specified" : this.theme;
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -602,11 +638,15 @@ function normalizeComponent (
     });
   }
 });
-// CONCATENATED MODULE: /Users/sun/.config/yarn/global/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-7bd97e10","hasScoped":false,"optionsId":"1","buble":{"transforms":{}}}!/Users/sun/.config/yarn/global/node_modules/vue-loader/lib/selector.js?type=template&index=0!./MyApp.vue
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('h1',[_vm._v("Hello "+_vm._s(_vm.name))]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.name),expression:"name"}],attrs:{"type":"text"},domProps:{"value":(_vm.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.name=$event.target.value}}}),_vm._l((_vm.message),function(item){return _c('div',{key:item.id},[_c('img',{attrs:{"src":item.avatar,"alt":""}}),_vm._v("\n      "+_vm._s(item.first_name)+"\n    ")])})],2)}
+// CONCATENATED MODULE: /Users/sun/.config/yarn/global/node_modules/vue-loader/lib/template-compiler?{"id":"data-v-1f566ea2","hasScoped":true,"optionsId":"1","buble":{"transforms":{}}}!/Users/sun/.config/yarn/global/node_modules/vue-loader/lib/selector.js?type=template&index=0!./MyApp.vue
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"app-container",class:_vm.themeName},[_c('h1',[_vm._v("Hello "+_vm._s(_vm.name))]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.name),expression:"name"}],attrs:{"type":"text"},domProps:{"value":(_vm.name)},on:{"input":function($event){if($event.target.composing){ return; }_vm.name=$event.target.value}}}),_vm._l((_vm.message),function(item){return _c('div',{key:item.id},[_c('img',{attrs:{"src":item.avatar,"alt":""}}),_vm._v("\n      "+_vm._s(item.first_name)+"\n    ")])}),_c('p',[_c('strong',[_vm._v(_vm._s(_vm.themeName))])])],2)}
 var staticRenderFns = []
 
 // CONCATENATED MODULE: ./MyApp.vue
+function injectStyle (context) {
+var i
+;(i=__webpack_require__("aIx7"),i.__inject__&&i.__inject__(context),i)
+}
 /* script */
 
 
@@ -615,9 +655,9 @@ var staticRenderFns = []
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-1f566ea2"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 
@@ -649,6 +689,23 @@ var Component = normalizeComponent(
 
 
 window.customElements.define('my-app', vue_wc_wrapper(external__Vue__default.a, MyApp))
+
+/***/ }),
+
+/***/ "aIx7":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("2D6E");
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add CSS to Shadow Root
+var add = __webpack_require__("3khe").default
+module.exports.__inject__ = function (shadowRoot) {
+  add("6dbcc338", content, shadowRoot)
+};
 
 /***/ }),
 
